@@ -41,32 +41,32 @@ namespace Shop.Controllers
     public ActionResult Details(int id)
     {
       Treat thisTreat = _db.Treats
-          // .Include(Treat => Treat.JoinEntities)
-          // .ThenInclude(join => join.Flavor)
+          .Include(t => t.FlavorTreats)
+          .ThenInclude(ft => ft.Flavor)
           .FirstOrDefault(Treat => Treat.TreatId == id);
       return View(thisTreat);
     }
 
-    // public ActionResult AddFlavor(int id)
-    // {
-    //   Treat thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
-    //   ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Description");
-    //   return View(thisTreat);
-    // }
+    public ActionResult AddFlavor(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(t => t.TreatId == id);
+      ViewBag.FlavorId = new SelectList(_db.Flavors, "FlavorId", "Type");
+      return View(thisTreat);
+    }
 
-    // [HttpPost]
-    // public ActionResult AddFlavor(Treat Treat, int FlavorId)
-    // {
-    //   #nullable enable
-    //   FlavorTreat? joinEntity = _db.FlavorTreats.FirstOrDefault(join => (join.FlavorId == FlavorId && join.TreatId == Treat.TreatId));
-    //   #nullable disable
-    //   if (joinEntity == null && FlavorId != 0)
-    //   {
-    //     _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = FlavorId, TreatId = Treat.TreatId });
-    //     _db.SaveChanges();
-    //   }
-    //   return RedirectToAction("Details", new { id = Treat.TreatId });
-    // }
+    [HttpPost]
+    public ActionResult AddFlavor(Treat treat, int flavorId)
+    {
+      #nullable enable
+      FlavorTreat? flavorTreat = _db.FlavorTreats.FirstOrDefault(ft => (ft.FlavorId == flavorId && ft.TreatId == treat.TreatId));
+      #nullable disable
+      if (flavorTreat == null && flavorId != 0)
+      {
+        _db.FlavorTreats.Add(new FlavorTreat() { FlavorId = flavorId, TreatId = treat.TreatId });
+        _db.SaveChanges();
+      }
+      return RedirectToAction("Details", new { id = treat.TreatId });
+    }
 
     public ActionResult Edit(int id)
     {
@@ -102,7 +102,7 @@ namespace Shop.Controllers
     }
 
     // [HttpPost]
-    // public ActionResult DeleteJoin(int joinId)
+    // public ActionResult DeleteJoin(int ftId)
     // {
     //   FlavorTreat joinEntry = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
     //   _db.FlavorTreats.Remove(joinEntry);
