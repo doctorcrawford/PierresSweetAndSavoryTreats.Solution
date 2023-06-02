@@ -36,6 +36,11 @@ a {
   border: 2px solid #0E3B43;
 }
 
+.basic p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 .list {
 	text-align: center;
 }
