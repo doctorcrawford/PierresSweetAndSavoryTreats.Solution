@@ -6,23 +6,30 @@ using Microsoft.AspNetCore.Identity;
 using System.Threading.Tasks;
 using System.Security.Claims;
 
-namespace Shop.Controllers
+namespace Shop.Controllers;
+
+public class HomeController : Controller
 {
-    public class HomeController : Controller
-    {
-      private readonly ShopContext _db;
-      private readonly UserManager<ApplicationUser> _userManager;
+  private readonly ShopContext _db;
+  private readonly UserManager<ApplicationUser> _userManager;
 
-      public HomeController(UserManager<ApplicationUser> userManager, ShopContext db)
-      {
-        _userManager = userManager;
-        _db = db;
-      }
+  public HomeController(UserManager<ApplicationUser> userManager, ShopContext db)
+  {
+    _userManager = userManager;
+    _db = db;
+  }
 
-      [HttpGet("/")]
-      public ActionResult Index()
-      {
-        return View();
-      }
-    }
+  [HttpGet("/")]
+  public ActionResult Index()
+  {
+    return View();
+  }
+
+}
+
+public class DatabaseInfo
+{
+  public IEnumerable<Flavor> Flavors { get; set; }
+  public IEnumerable<Treat> Treats { get; set; }
+  public IEnumerable<FlavorTreat> FlavorTreats { get; set; }
 }
