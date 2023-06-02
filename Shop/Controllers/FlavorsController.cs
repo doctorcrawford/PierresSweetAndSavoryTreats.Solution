@@ -68,19 +68,23 @@ namespace Shop.Controllers
     //   return RedirectToAction("Details", new { id = Flavor.FlavorId });
     // }
 
-    // public ActionResult Edit(int id)
-    // {
-    //   Flavor thisFlavor = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorId == id);
-    //   return View(thisFlavor);
-    // }
+    public ActionResult Edit(int id)
+    {
+      Flavor thisFlavor = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorId == id);
+      return View(thisFlavor);
+    }
 
-    // [HttpPost]
-    // public ActionResult Edit(Flavor Flavor)
-    // {
-    //   _db.Flavors.Update(Flavor);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Edit(Flavor Flavor)
+    {
+      if (!ModelState.IsValid)
+      {
+        return View(Flavor);
+      }
+      _db.Flavors.Update(Flavor);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult Delete(int id)
     // {
