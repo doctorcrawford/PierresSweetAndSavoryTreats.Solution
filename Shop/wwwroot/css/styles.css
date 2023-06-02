@@ -3,11 +3,27 @@ body {
   text-align: center;
 }
 
+div#header {
+  /* position: fixed; */
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  /* max-height: 15vw; */
+  color: #CCC;
+  background: #333;
+  padding: 8px;
+}
+
+/* div img {
+  max-height: 15vw;
+} */
+
 h1 {
   text-align: left;
   color: #312509;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  text-align: center;
 }
 
 h4 {
@@ -54,7 +70,7 @@ a {
 	text-align: center;
 }
 
-div#footer {
+#footer {
   position: fixed;
   bottom: 0px;
   left: 0px;
@@ -64,12 +80,16 @@ div#footer {
   padding: 8px;
 }
 
+#footer-space {
+  height: 7vw;
+}
+
 img {
   height: 200px;
   width: 100%;
   opacity: .5;
   object-fit: cover;
-	object-position: 90% 70%;
+	object-position: 50% 57%;
 }
 
 ul {
@@ -82,6 +102,7 @@ ul {
 	background-color: #9af0ff8e;
 	border: 1px solid black;
 	margin-left: 2rem;
+	margin-right: 2rem;
 }
 
 label {
