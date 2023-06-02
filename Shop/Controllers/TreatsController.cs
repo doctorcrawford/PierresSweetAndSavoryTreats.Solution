@@ -86,20 +86,20 @@ namespace Shop.Controllers
       return RedirectToAction("Index");
     }
 
-    // public ActionResult Delete(int id)
-    // {
-    //   Treat thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
-    //   return View(thisTreat);
-    // }
+    public ActionResult Delete(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      return View(thisTreat);
+    }
 
-    // [HttpPost, ActionName("Delete")]
-    // public ActionResult DeleteConfirmed(int id)
-    // {
-    //   Treat thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
-    //   _db.Treats.Remove(thisTreat);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost, ActionName("Delete")]
+    public ActionResult DeleteConfirmed(int id)
+    {
+      Treat thisTreat = _db.Treats.FirstOrDefault(Treats => Treats.TreatId == id);
+      _db.Treats.Remove(thisTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // [HttpPost]
     // public ActionResult DeleteJoin(int joinId)
