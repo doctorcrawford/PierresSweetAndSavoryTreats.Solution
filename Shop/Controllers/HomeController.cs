@@ -1,10 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Shop.Models;
 using System.Collections.Generic;
-using System.Linq;
 using Microsoft.AspNetCore.Identity;
-using System.Threading.Tasks;
-using System.Security.Claims;
 
 namespace Shop.Controllers;
 

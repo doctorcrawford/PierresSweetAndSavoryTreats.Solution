@@ -1,16 +1,15 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Shop.ViewModels
-{
-  public class LoginViewModel
-  {
-    [Required]
-    [EmailAddress]
-    [Display(Name = "Email Address")]
-    public string Email { get; set; }
+namespace Shop.ViewModels;
 
-    [Required]
-    [DataType(DataType.Password)]
-    public string Password { get; set; }
-  }
+public class LoginViewModel
+{
+  [Required]
+  [EmailAddress]
+  [Display(Name = "Email Address")]
+  public string Email { get; set; }
+
+  [Required]
+  [DataType(DataType.Password)]
+  public string Password { get; set; }
 }
