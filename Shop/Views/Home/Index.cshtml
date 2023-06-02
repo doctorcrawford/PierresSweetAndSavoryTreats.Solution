@@ -3,6 +3,16 @@
 <h1>Welcome to Pierre's Sweet and Savory Treats</h1>
 <hr>
 
+@if (User.Identity.IsAuthenticated)
+{
+  <h4>Hey, @User.Identity.Name!</h4>
+  <p>@Html.ActionLink("Log off", "LogOff", "Account")</p>
+}
+else
+{
+  <p>Please @Html.ActionLink("log in", "Login", "Account") to create, update or delete any flavors or treats.</p>
+}
+
 <div class="basic">
   <h4>Flavors</h4>
   @if (Model.Flavors.Count() == 0)
@@ -33,8 +43,8 @@
     }
   </ul>
 
-<p>@Html.ActionLink("See our flavors", "Index", "Flavors")</p>
-<p>@Html.ActionLink("See our treats", "Index", "Treats")</p>
+  <p>@Html.ActionLink("See our flavors", "Index", "Flavors")</p>
+  <p>@Html.ActionLink("See our treats", "Index", "Treats")</p>
 </div>
 
 <hr>
