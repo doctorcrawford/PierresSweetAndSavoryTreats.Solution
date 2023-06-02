@@ -6,9 +6,9 @@
 
 <h2>Treat Details</h2>
 <hr />
-<h3>@Html.DisplayNameFor(m => m.Name): @Html.DisplayFor(m => m.Name)</h3>  
+<h3>@Html.DisplayNameFor(m => m.Name): @Html.DisplayFor(m => m.Name)</h3>
 
-@if(@Model.FlavorTreats.Count == 0)
+@if (@Model.FlavorTreats.Count == 0)
 {
   <p>This treat does not have any flavors yet!</p>
 }
@@ -16,19 +16,21 @@ else
 {
   <h4>This treat contains the following flavors:</h4>
   <ul>
-    @foreach(FlavorTreat ft in Model.FlavorTreats)
+  @foreach (FlavorTreat ft in Model.FlavorTreats)
     {
       <li>Flavor: @ft.Flavor.Type</li>
       @using (Html.BeginForm("DeleteJoin", "Treats"))
       {
         @Html.Hidden("ftId", ft.FlavorTreatId)
-        <input type="submit" value="Delete" class="btn btn-default"/>
+        <input type="submit" value="Delete" class="btn btn-default" />
       }
     }
   </ul>
 }
 
-<p>@Html.ActionLink("Back to list", "Index")</p>
-<p>@Html.ActionLink("Edit treat", "Edit", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Add a flavor", "AddFlavor", new { id = Model.TreatId })</p>
-<p>@Html.ActionLink("Delete treat", "Delete", new { id = Model.TreatId })</p>
+<div class="links">
+  <p>@Html.ActionLink("Back to list", "Index")</p>
+  <p>@Html.ActionLink("Edit treat", "Edit", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Add a flavor", "AddFlavor", new { id = Model.TreatId })</p>
+  <p>@Html.ActionLink("Delete treat", "Delete", new { id = Model.TreatId })</p>
+</div>

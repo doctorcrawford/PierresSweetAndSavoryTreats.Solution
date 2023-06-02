@@ -36,9 +36,18 @@ a {
   border: 2px solid #0E3B43;
 }
 
-.basic p {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+.links {
+  text-align: center;
+  width: fit-content;
+  margin: auto;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border: 2px solid #2a808f;
+}
+
+.links p {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
 }
 
 .list {
