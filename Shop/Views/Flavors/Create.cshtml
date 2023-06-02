@@ -1,0 +1,15 @@
+@model Shop.Models.Flavor
+
+<h3>Add a new flavor</h3>
+
+<p>@Html.ValidationMessageFor(m => m.Type, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Type)
+  @Html.TextBoxFor(m => m.Type)
+
+  <input type="submit" value="Add new flavor" class="btn btn-default" />
+}
+
+<p>@Html.ActionLink("Show all flavors", "Index")</p>
