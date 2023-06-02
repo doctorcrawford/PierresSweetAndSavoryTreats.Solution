@@ -1,5 +1,40 @@
+@model Shop.Controllers.DatabaseInfo
 
 <h1>Welcome to Pierre's Sweet and Savory Treats</h1>
+<hr>
+
+<div class="basic">
+  <h4>Flavors</h4>
+  @if (Model.Flavors.Count() == 0)
+  {
+    <p>No flavors have been added yet!</p>
+  }
+  <ul>
+    @foreach (var flavor in Model.Flavors)
+    {
+      <li>@nameof(flavor.Type): @Html.ActionLink(flavor.Type, "Details", "Flavors", new { id = flavor.FlavorId})</li>
+    }
+  </ul>
+
+  <p>@Html.ActionLink("Add new flavor", "Create", "Flavors")</p>
+  <p>@Html.ActionLink("See list of flavors", "Index", "Flavors")</p>
+</div>
+
+<div class="basic">
+  <h4>Treats</h4>
+  @if (Model.Treats.Count() == 0)
+  {
+    <p>No treats have been added yet!</p>
+  }
+  <ul>
+    @foreach (var treat in Model.Treats)
+    {
+      <li>@nameof(treat.Name): @Html.ActionLink(@treat.Name, "Details", "Treats", new { id = @treat.TreatId})</li>
+    }
+  </ul>
 
 <p>@Html.ActionLink("See our flavors", "Index", "Flavors")</p>
 <p>@Html.ActionLink("See our treats", "Index", "Treats")</p>
+</div>
+
+<hr>

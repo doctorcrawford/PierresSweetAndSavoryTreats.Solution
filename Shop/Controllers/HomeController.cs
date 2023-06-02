@@ -22,7 +22,11 @@ public class HomeController : Controller
   [HttpGet("/")]
   public ActionResult Index()
   {
-    return View();
+    var databaseInfo = new DatabaseInfo {
+      Flavors = _db.Flavors,
+      Treats = _db.Treats
+    };
+    return View(databaseInfo);
   }
 
 }
