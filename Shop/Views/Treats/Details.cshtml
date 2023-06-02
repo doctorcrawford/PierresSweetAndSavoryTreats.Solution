@@ -19,10 +19,10 @@ else
     @foreach(FlavorTreat ft in Model.FlavorTreats)
     {
       <li>Flavor: @ft.Flavor.Type</li>
-      @using (Html.BeginForm("DeleteJoin", "Flavors"))
+      @using (Html.BeginForm("DeleteJoin", "Treats"))
       {
         @Html.Hidden("ftId", ft.FlavorTreatId)
-        <input type="submit" value="Delete"/>
+        <input type="submit" value="Delete" class="btn btn-default"/>
       }
     }
   </ul>

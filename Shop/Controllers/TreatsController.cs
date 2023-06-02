@@ -101,13 +101,13 @@ namespace Shop.Controllers
       return RedirectToAction("Index");
     }
 
-    // [HttpPost]
-    // public ActionResult DeleteJoin(int ftId)
-    // {
-    //   FlavorTreat joinEntry = _db.FlavorTreats.FirstOrDefault(entry => entry.FlavorTreatId == joinId);
-    //   _db.FlavorTreats.Remove(joinEntry);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult DeleteJoin(int ftId)
+    {
+      FlavorTreat flavorTreat = _db.FlavorTreats.FirstOrDefault(ft => ft.FlavorTreatId == ftId);
+      _db.FlavorTreats.Remove(flavorTreat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
   }
 }
