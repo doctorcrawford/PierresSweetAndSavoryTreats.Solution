@@ -36,13 +36,13 @@ namespace Shop.Controllers
     }
 
     [HttpPost]
-    public ActionResult Create(Flavor Flavor)
+    public ActionResult Create(Flavor flavor)
     {
       if (!ModelState.IsValid)
       {
-        return View(Flavor);
+        return View(flavor);
       }
-      _db.Flavors.Add(Flavor);
+      _db.Flavors.Add(flavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
@@ -75,13 +75,13 @@ namespace Shop.Controllers
     }
 
     [HttpPost]
-    public ActionResult Edit(Flavor Flavor)
+    public ActionResult Edit(Flavor flavor)
     {
       if (!ModelState.IsValid)
       {
-        return View(Flavor);
+        return View(flavor);
       }
-      _db.Flavors.Update(Flavor);
+      _db.Flavors.Update(flavor);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
