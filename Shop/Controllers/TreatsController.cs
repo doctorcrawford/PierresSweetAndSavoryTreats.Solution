@@ -44,7 +44,6 @@ public class TreatsController : Controller
     return RedirectToAction("Index");
   }
 
-  [Authorize]
   public ActionResult Details(int id)
   {
     Treat thisTreat = _db.Treats
