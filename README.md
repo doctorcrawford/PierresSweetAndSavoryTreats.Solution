@@ -48,7 +48,7 @@ Install the tools that are introduced in [this series of lessons on LearnHowToPr
 ## Known Bugs
 
 * _Any known issues_
-None
+`roles ` branch allows CRUD for roles and assinging roles to users. However, ran into but implementing roles for actual use on other routes.
 
 ## License
 [MIT](https://opensource.org/license/mit)
