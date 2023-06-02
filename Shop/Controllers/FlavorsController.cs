@@ -21,14 +21,14 @@ namespace Shop.Controllers
       return View(_db.Flavors.ToList());
     }
 
-    // public ActionResult Details(int id)
-    // {
-    //   Flavor thisFlavor = _db.Flavors
-    //       .Include(Flavor => Flavor.JoinEntities)
-    //       .ThenInclude(join => join.Treat)
-    //       .FirstOrDefault(Flavor => Flavor.FlavorId == id);
-    //   return View(thisFlavor);
-    // }
+    public ActionResult Details(int id)
+    {
+      Flavor thisFlavor = _db.Flavors
+          // .Include(Flavor => Flavor.JoinEntities)
+          // .ThenInclude(join => join.Treat)
+          .FirstOrDefault(Flavor => Flavor.FlavorId == id);
+      return View(thisFlavor);
+    }
 
     public ActionResult Create()
     {
