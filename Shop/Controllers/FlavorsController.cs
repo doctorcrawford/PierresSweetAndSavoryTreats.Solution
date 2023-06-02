@@ -24,6 +24,7 @@ public class FlavorsController : Controller
     return View(_db.Flavors.ToList());
   }
 
+  [Authorize]
   public ActionResult Create()
   {
     return View();
