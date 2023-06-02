@@ -24,13 +24,13 @@ public class FlavorsController : Controller
     return View(_db.Flavors.ToList());
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   public ActionResult Create()
   {
     return View();
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   [HttpPost]
   public ActionResult Create(Flavor flavor)
   {
@@ -55,7 +55,7 @@ public class FlavorsController : Controller
     return View(thisFlavor);
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   public ActionResult AddTreat(int id)
   {
     Flavor thisFlavor = _db.Flavors.FirstOrDefault(f => f.FlavorId == id);
@@ -64,7 +64,7 @@ public class FlavorsController : Controller
     return View(thisFlavor);
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   [HttpPost]
   public ActionResult AddTreat(Flavor flavor, int treatId)
   {
@@ -81,7 +81,7 @@ public class FlavorsController : Controller
     return RedirectToAction("Details", new { id = flavor.FlavorId });
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   public ActionResult Edit(int id)
   {
     Flavor thisFlavor = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorId == id);
@@ -89,7 +89,7 @@ public class FlavorsController : Controller
     return View(thisFlavor);
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   [HttpPost]
   public ActionResult Edit(Flavor flavor)
   {
@@ -104,7 +104,7 @@ public class FlavorsController : Controller
     return RedirectToAction("Index");
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   public ActionResult Delete(int id)
   {
     Flavor thisFlavor = _db.Flavors.FirstOrDefault(Flavors => Flavors.FlavorId == id);
@@ -112,7 +112,7 @@ public class FlavorsController : Controller
     return View(thisFlavor);
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   [HttpPost, ActionName("Delete")]
   public ActionResult DeleteConfirmed(int id)
   {
@@ -123,7 +123,7 @@ public class FlavorsController : Controller
     return RedirectToAction("Index");
   }
 
-  [Authorize]
+  [Authorize(Roles = "Admin")]
   [HttpPost]
   public ActionResult DeleteJoin(int ftId)
   {

@@ -24,6 +24,7 @@ namespace Shop
                       );
       
       builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ShopContext>()
                 .AddDefaultTokenProviders();
 
