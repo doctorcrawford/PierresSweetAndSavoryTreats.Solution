@@ -1,3 +1,7 @@
+@{
+  Layout = "_Layout";
+}
+
 @model Shop.Models.Flavor
 
 <h2>Add a treat</h2>
@@ -6,11 +10,11 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(f => f.FlavorId)
+  @Html.HiddenFor(f => f.FlavorId)
 
-    <p>@Html.Label("Select treat"): @Html.DropDownList("TreatId")</p>
+  <p>@Html.Label("Select treat"): @Html.DropDownList("TreatId")</p>
 
-    <input type="submit" value="Save" class="btn btn-default"/>
+  <input type="submit" value="Save" class="btn btn-default" />
 }
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
