@@ -6,7 +6,7 @@
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(model => model.FlavorId)
+    @Html.HiddenFor(f => f.FlavorId)
 
     <p>@Html.Label("Select treat"): @Html.DropDownList("TreatId")</p>
 
