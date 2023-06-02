@@ -30,18 +30,22 @@ namespace Shop.Controllers
     //   return View(thisTreat);
     // }
 
-    // public ActionResult Create()
-    // {
-    //   return View();
-    // }
+    public ActionResult Create()
+    {
+      return View();
+    }
 
-    // [HttpPost]
-    // public ActionResult Create(Treat Treat)
-    // {
-    //   _db.Treats.Add(Treat);
-    //   _db.SaveChanges();
-    //   return RedirectToAction("Index");
-    // }
+    [HttpPost]
+    public ActionResult Create(Treat treat)
+    {
+      if (!ModelState.IsValid)
+      {
+        return View(treat);
+      }
+      _db.Treats.Add(treat);
+      _db.SaveChanges();
+      return RedirectToAction("Index");
+    }
 
     // public ActionResult AddFlavor(int id)
     // {

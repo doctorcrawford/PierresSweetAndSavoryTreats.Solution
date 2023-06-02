@@ -1,0 +1,15 @@
+@model Shop.Models.Treat
+
+<h3>Add a new treat</h3>
+
+<p>@Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger", @style = "font-weight: 600;" })</p>
+
+@using (Html.BeginForm())
+{
+  @Html.LabelFor(m => m.Name)
+  @Html.TextBoxFor(m => m.Name)
+
+  <input type="submit" value="Add new treat" class="btn btn-default" />
+}
+
+<p>@Html.ActionLink("Show all treats", "Index")</p>
