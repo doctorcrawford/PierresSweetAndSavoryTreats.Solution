@@ -1,7 +1,3 @@
-@{
-  Layout = "_Layout";
-}
-
 @* @using ToDoList.Models *@
 @model Shop.Models.Flavor
 
@@ -9,27 +5,27 @@
 <hr />
 <h3>@Html.DisplayNameFor(m => m.Type): @Html.DisplayFor(m => m.Type)</h3>  
 
-@* @if(@Model.JoinEntities.Count == 0)
+@if(@Model.FlavorTreats.Count == 0)
 {
   <p>This flavor does not have any treats yet!</p>
 }
 else
 {
-  <h4>This flavor has the following treats:</h4>
+  <h4>This flavor has (can be tasted in) the following treats:</h4>
   <ul>
-    @foreach(FlavorTreat join in Model.JoinEntities)
+    @foreach(FlavorTreat ft in Model.FlavorTreats)
     {
-      <li>Treat: @join.Treat.Title</li>
+      <li>Treat: @ft.Treat.Name</li>
       @using (Html.BeginForm("DeleteJoin", "Flavors"))
       {
-        @Html.Hidden("joinId", @join.FlavorTreatId)
+        @Html.Hidden("joinId", ft.FlavorTreatId)
         <input type="submit" value="Delete"/>
       }
     }
   </ul>
-} *@
+}
 
 <p>@Html.ActionLink("Back to list", "Index")</p>
 <p>@Html.ActionLink("Edit Flavor", "Edit", new { id = Model.FlavorId })</p>
-@* <p>@Html.ActionLink("Add a Treat", "AddTreat", new { id = Model.FlavorId })</p> *@
+<p>@Html.ActionLink("Add a treat to this flavor", "AddTreat", new { id = Model.FlavorId })</p>
 <p>@Html.ActionLink("Delete Flavor", "Delete", new { id = Model.FlavorId })</p>
