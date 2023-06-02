@@ -1,0 +1,35 @@
+@{
+  Layout = "_Layout";
+}
+
+@* @using ToDoList.Models *@
+@model Shop.Models.Treat
+
+<h2>Treat Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(m => m.Name): @Html.DisplayFor(m => m.Name)</h3>  
+
+@* @if(@Model.JoinEntities.Count == 0)
+{
+  <p>This treat does not have any treats yet!</p>
+}
+else
+{
+  <h4>This treat has the following treats:</h4>
+  <ul>
+    @foreach(FlavorTreat join in Model.JoinEntities)
+    {
+      <li>Treat: @join.Treat.Title</li>
+      @using (Html.BeginForm("DeleteJoin", "Flavors"))
+      {
+        @Html.Hidden("joinId", @join.FlavorTreatId)
+        <input type="submit" value="Delete"/>
+      }
+    }
+  </ul>
+} *@
+
+<p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit treat", "Edit", new { id = Model.TreatId })</p>
+@* <p>@Html.ActionLink("Add a flavor", "AddTreat", new { id = Model.TreatId })</p> *@
+<p>@Html.ActionLink("Delete treat", "Delete", new { id = Model.TreatId })</p>

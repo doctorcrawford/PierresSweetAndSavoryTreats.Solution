@@ -21,15 +21,6 @@ namespace Shop.Controllers
       return View(_db.Treats.ToList());
     }
 
-    // public ActionResult Details(int id)
-    // {
-    //   Treat thisTreat = _db.Treats
-    //       .Include(Treat => Treat.JoinEntities)
-    //       .ThenInclude(join => join.Flavor)
-    //       .FirstOrDefault(Treat => Treat.TreatId == id);
-    //   return View(thisTreat);
-    // }
-
     public ActionResult Create()
     {
       return View();
@@ -45,6 +36,15 @@ namespace Shop.Controllers
       _db.Treats.Add(treat);
       _db.SaveChanges();
       return RedirectToAction("Index");
+    }
+
+    public ActionResult Details(int id)
+    {
+      Treat thisTreat = _db.Treats
+          // .Include(Treat => Treat.JoinEntities)
+          // .ThenInclude(join => join.Flavor)
+          .FirstOrDefault(Treat => Treat.TreatId == id);
+      return View(thisTreat);
     }
 
     // public ActionResult AddFlavor(int id)
