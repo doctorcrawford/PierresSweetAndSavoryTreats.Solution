@@ -4,15 +4,19 @@
 
 <h2>Flavors</h2>
 
-@if (@Model.Count == 0)
-{
-  <h3>No flavors have been added yet!</h3>
-}
+<hr />
 
-@foreach (Flavor flavor in Model)
-{
-  <li>@Html.ActionLink($"{flavor.Type}", "Details", new { id = flavor.FlavorId })</li>
-}
+<div class="basic">
+  @if (@Model.Count == 0)
+  {
+    <h3>No flavors have been added yet!</h3>
+  }
+
+  @foreach (Flavor flavor in Model)
+  {
+    <li>@Html.ActionLink($"{flavor.Type}", "Details", new { id = flavor.FlavorId })</li>
+  }
+</div>
 
 <div class="basic">
   <p>@Html.ActionLink("Add new flavor", "Create")</p>
