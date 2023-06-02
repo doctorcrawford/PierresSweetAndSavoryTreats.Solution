@@ -6,7 +6,7 @@
 @if (User.Identity.IsAuthenticated)
 {
   <h4>Hey, @User.Identity.Name!</h4>
-  <p>@Html.ActionLink("Log off", "LogOff", "Account")</p>
+  <p>@Html.ActionLink("Manage account", "Index", "Account")</p>
 }
 else
 {
